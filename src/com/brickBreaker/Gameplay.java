@@ -6,6 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.Timer;
+
+import javax.swing.JPanel;
 
 public class Gameplay extends JPanel implements KeyListener, ActionListener {
     private boolean play = false;
@@ -13,7 +16,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
 
     private int totalBricks = 21;
 
-    private Timer time;
+    private Timer timer;
     private int delay = 8;
 
     private int playerX = 310;
@@ -43,17 +46,20 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
         g.fillRect(691, 0, 3, 592);
 
         // the paddle
-        g.setColor(Color.green);
+        g.setColor(Color.magenta);
         g.fillRect(playerX, 550, 100, 8);
 
         // the ball
         g.setColor(Color.orange);
         g.fillRect(ballposX, ballposY, 20, 20);
+
+        g.dispose();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        timer.start();
+        repaint();
     }
 
     @Override
@@ -77,6 +83,16 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
                 moveLeft();
             }
         }
+    }
+
+    public void moveRight() {
+        play = true;
+        playerX += 20;
+    }
+
+    public void moveLeft() {
+        play = true;
+        playerX -= 20;
     }
 
     @Override
