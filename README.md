@@ -4,7 +4,7 @@
 A game in Java where the player must smash a wall of bricks by deflecting a bouncing ball with a paddle.
 
 ## Screenshots
-![Java Brick Breaker Screenshot](./public/images/)
+![Java Brick Breaker Screenshot](./public/images/brick-breaker-screenshot.jpg)
 
 ## Table of Contents
  * [Installation](#installation)
