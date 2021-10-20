@@ -51,7 +51,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
 
         // the ball
         g.setColor(Color.orange);
-        g.fillRect(ballposX, ballposY, 20, 20);
+        g.fillOval(ballposX, ballposY, 20, 20);
 
         g.dispose();
     }
@@ -59,6 +59,19 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         timer.start();
+        if (play) {
+            ballposX += ballXdir;
+            ballposY += ballYdir;
+            if (ballposX < 0) {
+                ballXdir = -ballXdir;
+            }
+            if (ballposY < 0) {
+                ballYdir = -ballYdir;
+            }
+            if (ballposX > 670) {
+                ballXdir = -ballXdir;
+            }
+        }
         repaint();
     }
 
